@@ -50,21 +50,21 @@ from pytgcalls.types import (
 from pytgcalls.types.stream import StreamEnded
 from typing import Union
 import urllib
-from FrozenMusic.infra.concurrency.ci import deterministic_privilege_validator
-from FrozenMusic.telegram_client.vector_transport import vector_transport_resolver
-from FrozenMusic.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
-from FrozenMusic.infra.vector.yt_backup_engine import yt_backup_engine
-from FrozenMusic.infra.chrono.chrono_formatter import quantum_temporal_humanizer
-from FrozenMusic.vector_text_tools import vectorized_unicode_boldifier
+from HarukaMusic.infra.concurrency.ci import deterministic_privilege_validator
+from HarukaMusic.telegram_client.vector_transport import vector_transport_resolver
+from HarukaMusic.infra.vector.yt_vector_orchestrator import yt_vector_orchestrator
+from HarukaMusic.infra.vector.yt_backup_engine import yt_backup_engine
+from HarukaMusic.infra.chrono.chrono_formatter import quantum_temporal_humanizer
+from HarukaMusic.vector_text_tools import vectorized_unicode_boldifier
 
 load_dotenv()
 
 
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-ASSISTANT_SESSION = os.environ.get("ASSISTANT_SESSION")
-OWNER_ID = int(os.getenv("OWNER_ID", "5268762773"))
+API_ID = int(os.environ.get("28487420"))
+API_HASH = os.environ.get("2ded01d66903a024b83b80dd50ecc4d6")
+BOT_TOKEN = os.environ.get("7440176391:AAHDSzfhlGENiek8iQ5UkiR_e03loH0zres")
+ASSISTANT_SESSION = os.environ.get("BQGyrvwAI2dvVokEbrrm-NM4yG0QV7HUkBzGpEeN0jiUcTxKgnlpyoT2KJalvcMItJJ46IAoXpqPJZvKBNfHk2hva6HvX1836SuwlFXkMcSi0CyXBzWy3CT20AqT21W4lrPidf9tgfkq28Nikoe96KmUtn01IuwYZqnKcsUcT1YQ429MBSPjfyuYY58JDtAhBbTkJBI-s9qceGWFVc0VOQPCvB_lQ5fLNl4RBV9z8SUqRaloJAOe8VpOpfhrhlbrxlj_ZlhoFuo-V1VxxSLGmRmV0Y6JklKUMcJ46BP7I6YJyT15XqkYMnz_X2ADxH6BhykjjqePgPhwLSXQ5FQ8-b4hyMnsPgAAAAHR7LRyAA")
+OWNER_ID = int(os.getenv("OWNER_ID", "7816918130"))
 
 # ——— Monkey-patch resolve_peer ——————————————
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
@@ -391,7 +391,7 @@ async def start_handler(_, message):
         ">🔊 𝗖𝗥𝗬𝗦𝗧𝗔𝗟-𝗖𝗟𝗘𝗔𝗥 𝗔𝗨𝗗𝗜𝗢\n"
         ">🎧 𝗦𝗨𝗣𝗣𝗢𝗥𝗧𝗘𝗗 𝗣𝗟𝗔𝗧𝗙𝗢𝗥𝗠𝗦: YouTube | Spotify | Resso | Apple Music | SoundCloud\n"
         ">✨ 𝗔𝗨𝗧𝗢-𝗦𝗨𝗚𝗚𝗘𝗦𝗧𝗜𝗢𝗡𝗦 when queue ends\n"
-        ">🛠️ 𝗔𝗗𝗠𝗜𝗡 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦: Pause, Resume, Skip, Stop, Mute, Unmute, Tmute, Kick, Ban, Unban, Couple\n"
+        ">🛠️ 𝗔𝗗𝗠𝗜𝗡 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦: Pause, Resume, Skip, Stop, Mute, Unmute, Tmute, Kick, Ban, Afk, Unban, Couple\n"
         ">❤️ 𝗖𝗢𝗨𝗣𝗟𝗘 𝗦𝗨𝗚𝗚𝗘𝗦𝗧𝗜𝗢𝗡 (pick random pair in group)\n"
         f"๏ ᴄʟɪᴄᴋ {help_text} ʙᴇʟᴏᴡ ғᴏʀ ᴄᴏᴍᴍᴀɴᴅ ʟɪsᴛ."
     )
@@ -646,7 +646,7 @@ async def play_handler(_, message: Message):
 
 async def process_play_command(message: Message, query: str):
     chat_id = message.chat.id
-    processing_message = await message.reply("❄️")
+    processing_message = await message.reply("🥳")
 
     # --- ensure assistant is in the chat before we queue/play anything ----
     status = await is_assistant_in_chat(chat_id)
@@ -931,7 +931,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>🎧 Haruka ✘ Music Streaming</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
@@ -1522,12 +1522,6 @@ if __name__ == "__main__":
         logger.error(f"Error starting Telegram bot: {e}")
         sys.exit(1)
 
-    # Fetch bot name and link and set default values from environment
-    BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-    BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
-    logger.info(f"Bot name set to: {BOT_NAME}")
-    logger.info(f"Bot link set to: {BOT_LINK}")
-
     # If assistant is used for voice or other tasks
     if not assistant.is_connected:
         logger.info("Assistant not connected; starting assistant client...")
@@ -1542,3 +1536,50 @@ if __name__ == "__main__":
 
 
 
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
+
+afk_users = {}
+
+# /afk command
+async def afk_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+    reason = " ".join(context.args) if context.args else "AFK"
+    afk_users[user.id] = reason
+    await update.message.reply_text(f"{user.first_name} is now AFK: {reason}")
+
+# Remove AFK when user sends a message
+async def remove_afk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user = update.effective_user
+    if user.id in afk_users:
+        afk_users.pop(user.id)
+        await update.message.reply_text(f"Welcome back, {user.first_name}! Removed your AFK status.")
+
+# Check mentions and notify if mentioned user is AFK
+async def check_mentions(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message is None:
+        return
+    for entity in update.message.entities:
+        if entity.type == "mention":
+            username = update.message.text[entity.offset+1 : entity.offset+entity.length]
+            for user_id, reason in afk_users.items():
+                member = await context.bot.get_chat_member(update.effective_chat.id, user_id)
+                if member.user.username == username:
+                    await update.message.reply_text(f"{username} is currently AFK: {reason}")
+                    break
+
+# Main function
+async def main():
+    app = ApplicationBuilder().token("YOUR_BOT_TOKEN").build()
+
+    app.add_handler(CommandHandler("afk", afk_command))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, remove_afk))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_mentions))
+
+    print("Bot is running...")
+    await app.run_polling()
+
+# Run the bot
+if __name__ == '__main__':
+    import asyncio
+    asyncio.run(main())
