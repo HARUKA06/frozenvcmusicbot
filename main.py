@@ -4,6 +4,7 @@ from config import API_ID, API_HASH, BOT_TOKEN
 from music_queue import add_to_queue, get_next_song, get_queue, clear_queue
 import os
 
+# Initialize bot
 API_ID = "YOUR_API_ID"
 API_HASH = "YOUR_API_HASH"
 BOT_TOKEN = "YOUR_BOT_TOKEN"
@@ -11,10 +12,6 @@ BOT_TOKEN = "YOUR_BOT_TOKEN"
 # This must be a user account session string, NOT a bot token.
 # Use `pyrogram` to generate it. Let me know if you need help with that.
 SESSION_STRING = "YOUR_USER_SESSION_STRING"
-
-
-# Initialize bot
-bot = Client("music_afk_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 # In-memory AFK tracking
 afk_users = {}
