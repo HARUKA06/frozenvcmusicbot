@@ -5,13 +5,13 @@ from music_queue import add_to_queue, get_next_song, get_queue, clear_queue
 import os
 
 # Initialize bot
-API_ID = "YOUR_API_ID"
-API_HASH = "YOUR_API_HASH"
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+API_ID = "28487420"
+API_HASH = "2ded01d66903a024b83b80dd50ecc4d6"
+BOT_TOKEN = "7989152718:AAFBPf1MNoGj-1SSSw3LAPcMGnQtAwv8cQU"
 
 # This must be a user account session string, NOT a bot token.
 # Use `pyrogram` to generate it. Let me know if you need help with that.
-SESSION_STRING = "YOUR_USER_SESSION_STRING"
+SESSION_STRING = "BQGyrvwAI2dvVokEbrrm-NM4yG0QV7HUkBzGpEeN0jiUcTxKgnlpyoT2KJalvcMItJJ46IAoXpqPJZvKBNfHk2hva6HvX1836SuwlFXkMcSi0CyXBzWy3CT20AqT21W4lrPidf9tgfkq28Nikoe96KmUtn01IuwYZqnKcsUcT1YQ429MBSPjfyuYY58JDtAhBbTkJBI-s9qceGWFVc0VOQPCvB_lQ5fLNl4RBV9z8SUqRaloJAOe8VpOpfhrhlbrxlj_ZlhoFuo-V1VxxSLGmRmV0Y6JklKUMcJ46BP7I6YJyT15XqkYMnz_X2ADxH6BhykjjqePgPhwLSXQ5FQ8-b4hyMnsPgAAAAHR7LRyAA"
 
 # In-memory AFK tracking
 afk_users = {}
