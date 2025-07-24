@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: frozen-music-bot
+    name: Haruka-music-bot
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
@@ -23,6 +23,6 @@ services:
       - key: MongoDB_url
         sync: false
       - key: ASSISTANT_USERNAME
-        sync: false
+        sync: true
       - key: ASSISTANT_CHAT_ID
         sync: false
