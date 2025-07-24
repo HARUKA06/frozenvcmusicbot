@@ -16,6 +16,9 @@ SESSION_STRING = "BQGyrvwAI2dvVokEbrrm-NM4yG0QV7HUkBzGpEeN0jiUcTxKgnlpyoT2KJalvc
 # In-memory AFK tracking
 afk_users = {}
 
+# Get this value Telegram id
+OWNER_ID = int(getenv("OWNER_ID", "7816918130"))
+
 # /start
 @bot.on_message(filters.command("/start	Shows welcome message
 🎵 Music Commands:
@@ -254,6 +257,13 @@ async def show_id(client, message):
 • Your User ID: {user.id}
 """
     await message.reply(text.strip())
+   
+# Get your mongo url from cloud.mongodb.com
+MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", None)
+PRIVATE_BOT_MODE = getenv("PRIVATE_BOT_MODE", None)
+
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 900))
 
 # Updated /ask command to save history
 @bot.on_message(filters.command("ask"))
@@ -299,6 +309,36 @@ async def history(client, message):
 
     await message.reply(text.strip())
 
+# Fill this variable if your upstream repository is private
+
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/JAVANON_KA_ADDA")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/JAVANON_KA_ADDA")
+
+# Set this to True if you want the assistant to automatically leave chats after an interval
+AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
+
+# Auto Gcast/Broadcast Handler (True = broadcast on , False = broadcast off During Hosting, Dont Do anything here.)
+AUTO_GCAST = os.getenv("AUTO_GCAST")
+
+# Auto Broadcast Message That You Want Use In Auto Broadcast In All Groups.
+AUTO_GCAST_MSG = getenv("AUTO_GCAST_MSG", "")
+
+# Get this credentials from https://developer.spotify.com/dashboard
+SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "bcfe26b0ebc3428882a0b5fb3e872473")
+SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "907c6a054c214005aeae1fd752273cc4")
+
+
+# Maximum limit for fetching playlist's track from youtube, spotify, apple links.
+SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "50"))
+PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "25"))
+
+SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "180"))
+SONG_DOWNLOAD_DURATION_LIMIT = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "2000"))
+
+# Telegram audio and video file size limit (in bytes)
+TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))
+TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
+# Checkout https://www.gbmb.org/mb-to-bytes for converting mb to bytes
 
 if __name__ == "__main__":
     asyncio.run(main())
