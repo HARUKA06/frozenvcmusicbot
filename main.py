@@ -72,6 +72,7 @@ AFK status is removed automatically when you message again.
 
 **/start**
 Start the bot and see welcome message.
+Feedback https://t.me/Javanon_ka_adda
 
 **/help**
 Show this help message.
